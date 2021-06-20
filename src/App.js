@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import RenderForm from './components/pages/RenderForm';
+import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+import CreateForm from "./components/pages/CreateForm"
+import Login from "./components/Login";
+import SignUp from "./components/Signup";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="font-sans">
+        <Switch>
+          <Route path="/createform">
+          <CreateForm/>
+          </Route>
+          <Route path="/viewform">
+          <RenderForm/>
+          </Route>
+          <Route path="/login">
+          <Login/>
+          </Route>
+          <Route path="/signup">
+          <SignUp/>
+          </Route>
+        </Switch>
+        
+      </div>
+    </Router>
+    
   );
 }
 
