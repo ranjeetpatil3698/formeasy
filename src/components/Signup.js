@@ -6,7 +6,7 @@ function Signup() {
     const [password,setpassword]=useState("");
     const [email,setemail]=useState("");
     const [confirm,setconfirm]=useState("");
-
+    
     return (
         <div className="flex flex-col gap-2 border ">
          <div className="text-3xl">Signup page  </div>
@@ -34,7 +34,8 @@ function Signup() {
             value={confirm}
             onChange={(e)=>setconfirm(e.target.value)}
         />
-        <Signbutton name={name} password={password} email={email} confirm={confirm}/>
+        
+        <Signbutton name={name} password={password} email={email} passwordConfirm={confirm} />
         </div>
     )
 }

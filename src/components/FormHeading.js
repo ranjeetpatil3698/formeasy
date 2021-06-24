@@ -20,7 +20,7 @@ function FormHeading() {
             onBlur={handleContentChange}
             contentEditable
             suppressContentEditableWarning={true}
-            className="w-full outline-none"
+            className="w-full outline-none h-16"
             >
             <p></p>
       </div>

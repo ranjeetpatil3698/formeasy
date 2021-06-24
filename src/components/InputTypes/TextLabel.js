@@ -35,7 +35,7 @@ function TextLabel({id,label,important,solution}) {
             onBlur={handleLabelChange}
             contentEditable
             suppressContentEditableWarning={true}
-            className="font-meduim text-3xl w-full outline-none"
+            className="font-meduim text-3xl w-full outline-none h-8"
             >
         <p></p>
       </div>

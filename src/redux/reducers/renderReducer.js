@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import createrequest  from "../../utlis/createrequest"
 
 let countElements=(elements)=>{
     let count=0;
@@ -10,41 +11,18 @@ let countElements=(elements)=>{
     return count;
 }
 
+const initialState={
+  formname:"",
+  formelements:0,
+  submitstatus:[],
+  submitready:false,
+  formdetails: [],
+  formurl:"",
+}
 
 export const counterSlice = createSlice({
   name: "renderReducer",
-  initialState: {
-    formname:"Reactjs workshop",
-    formelements:3,
-    submitstatus:[],
-    submitready:false,
-    formdetails: [
-        {
-            id:1,
-            label:"whats your name",
-            formtype:"text",
-            required:true,
-            answer:"",
-            done:false
-        },
-        {
-            id:2,
-            label:"whats your Number",
-            formtype:"Number",
-            required:true,
-            answer:"",
-            done:false
-        },
-        {
-            id:3,
-            label:"upload a file",
-            formtype:"File",
-            required:true,
-            answer:"",
-            done:false
-        }
-    ]
-  },
+  initialState: initialState,
   reducers: {
     updateanswer:(state,action)=>{
       const {id,value}=action.payload;
@@ -68,13 +46,19 @@ export const counterSlice = createSlice({
         state.submitready=false;
       }
     },
-    checksubmit:(state,action)=>{
-
+    setInitialState:(state,{payload})=>{
+      const {fname,data,formelements,formurl}=payload.data
+      state.formname=fname;
+      state.formdetails=data;
+      state.formelements=formelements;
+      state.formurl=formurl
     }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {  updateanswer,checksubmit} = counterSlice.actions;
+export const {  updateanswer,setInitialState} = counterSlice.actions;
 
 export default counterSlice.reducer;
+
+

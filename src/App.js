@@ -13,7 +13,7 @@ function App() {
           <Route path="/createform">
           <CreateForm/>
           </Route>
-          <Route path="/viewform">
+          <Route path="/viewform/:url">
           <RenderForm/>
           </Route>
           <Route path="/login">

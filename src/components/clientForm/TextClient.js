@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 
 
-function TextClient({id,label,important,solution,done}) {
+function TextClient({id,label,important,solution="",done}) {
     const dispatch = useDispatch();
     const [answer,setAnswer]=useState("");
     

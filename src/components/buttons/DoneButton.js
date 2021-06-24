@@ -1,11 +1,16 @@
 import React from 'react'
+import Cookies from 'js-cookie'
 import { useSelector } from "react-redux";
+import createrequest from '../../utlis/createrequest';
 
 function DoneButton() {
     const {formname,formelements,formdetails}=useSelector((state)=>state.formlist);
-
+    
     const handleClick=()=>{
+        const data={formname,formelements,formdetails}
         console.log({formname,formelements,formdetails})
+        const {request}=createrequest(`${process.env.REACT_APP_API}/createform`,'post',data)
+        console.log(Cookies.get("jwt"))
     }
     return (
         <div className="bg-purple-600 bg-opacity-75 text-white w-full p-3 rounded-md" onClick={handleClick}>

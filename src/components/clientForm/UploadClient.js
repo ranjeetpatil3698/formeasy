@@ -3,7 +3,7 @@ import { updateanswer } from '../../redux/reducers/renderReducer';
 import { useDispatch } from "react-redux";
 
 
-function UploadClient({id,label,important,solution,done}) {
+function UploadClient({id,label,important,solution="",done}) {
     const dispatch = useDispatch();
     const [selectedFile, setSelectedFile] = useState("");
 

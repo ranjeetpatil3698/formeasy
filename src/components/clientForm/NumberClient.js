@@ -3,7 +3,7 @@ import { updateanswer } from '../../redux/reducers/renderReducer';
 import { useDispatch } from "react-redux";
 
 
-function NumberClient({id,label,important,solution,done}) {
+function NumberClient({id,label,important,solution="",done}) {
     const dispatch = useDispatch();
     const [answer,setAnswer]=useState("");
     
