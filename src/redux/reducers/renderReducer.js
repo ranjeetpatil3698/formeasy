@@ -48,6 +48,7 @@ export const counterSlice = createSlice({
     },
     setInitialState:(state,{payload})=>{
       const {fname,data,formelements,formurl}=payload.data
+      
       state.formname=fname;
       state.formdetails=data;
       state.formelements=formelements;

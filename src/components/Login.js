@@ -19,6 +19,7 @@ function Login() {
             placeholder="Password" 
             className="p-1 m-1 rounded w-1/4 h-10 border border-purple-500 "
             value={password}
+            type="password"
             onChange={(e)=>setpassword(e.target.value)}
         />
         <Loginbutton  password={password} email={email} />

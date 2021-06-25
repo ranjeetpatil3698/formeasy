@@ -1,15 +1,25 @@
-import React from 'react'
+import React,{useState} from 'react'
 import createrequest from '../utlis/createrequest'
+import { useMutation } from "react-query";
+import axios from "axios";
 
 function Signbutton({name,email,password,passwordConfirm}){
-    const data={name,email,password,passwordConfirm}
-   
+    
+    const instance = axios.create({
+        withCredentials: true
+      })
+
+    const {mutate,isError ,isSuccess,error,data }=useMutation(data=>instance.post(`${process.env.REACT_APP_API}/signup`,data))
+    const {merror,setmerror}=useState("")
     const handleClick=()=>{
-        try{
-            const {request}=createrequest(`${process.env.REACT_APP_API}/signup`,'post',data)
-        }catch(err){
-            console.log(err)
-        }
+        const requestdata={name,email,password,passwordConfirm};
+        mutate(requestdata)
+        // if(data.data.error){
+        //     setmerror(data.data.error)
+        // }else{
+        //     setmerror(!merror)
+        // }
+        
         
         
     }
@@ -21,7 +31,10 @@ function Signbutton({name,email,password,passwordConfirm}){
             </svg>
             SignIn
         </div> 
-              
+        
+        <div>{isError?"error":""}</div>   
+        <div>{isSuccess?"LoggedIn":""}</div> 
+        <div>{merror?"error"+merror:""}</div> 
         </div>
     )
 }

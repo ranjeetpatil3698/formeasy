@@ -26,15 +26,18 @@ function Signup() {
             placeholder="Password" 
             className="p-1 m-1 rounded w-1/4 h-10 border border-purple-500 "
             value={password}
+            type="password"
             onChange={(e)=>setpassword(e.target.value)}
         />
         <input 
             placeholder="Confirm Password" 
             className="p-1 m-1 rounded w-1/4 h-10 border border-purple-500"
+            type="password"
             value={confirm}
             onChange={(e)=>setconfirm(e.target.value)}
         />
-        
+        <div>{password==confirm?"":"password not same"}</div>
+        <div>{password.length>=8?"":"password should be greater than 8"}</div>
         <Signbutton name={name} password={password} email={email} passwordConfirm={confirm} />
         </div>
     )
