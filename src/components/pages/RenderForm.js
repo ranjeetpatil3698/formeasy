@@ -84,7 +84,7 @@ function RenderForm() {
       <span className="font-semibold text-red-600">
         {submitready ? null : "Please fill all the fields"}
       </span>
-      <SubmitButton />
+      <SubmitButton url={url} />
     </div>
   );
 }

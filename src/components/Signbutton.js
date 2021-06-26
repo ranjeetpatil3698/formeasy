@@ -4,22 +4,23 @@ import { useMutation } from "react-query";
 import axios from "axios";
 
 function Signbutton({name,email,password,passwordConfirm}){
-    
+    const [merror,setmerror]=useState("")
     const instance = axios.create({
         withCredentials: true
       })
 
     const {mutate,isError ,isSuccess,error,data }=useMutation(data=>instance.post(`${process.env.REACT_APP_API}/signup`,data))
-    const {merror,setmerror}=useState("")
+    const {mutate:user,data:userexist }=useMutation(data=>instance.post(`${process.env.REACT_APP_API}/checkuser`,data))
+    
+
     const handleClick=()=>{
         const requestdata={name,email,password,passwordConfirm};
-        mutate(requestdata)
-        // if(data.data.error){
-        //     setmerror(data.data.error)
-        // }else{
-        //     setmerror(!merror)
-        // }
+        user({email});
         
+        if( userexist && userexist.data.exist){
+            console.log(userexist)
+            setmerror("user already exists")
+        }
         
         
     }
@@ -32,9 +33,10 @@ function Signbutton({name,email,password,passwordConfirm}){
             SignIn
         </div> 
         
-        <div>{isError?"error":""}</div>   
+        {/* handle this states in another component */}
+        {/* <div>{isError?"error":""}</div>   
         <div>{isSuccess?"LoggedIn":""}</div> 
-        <div>{merror?"error"+merror:""}</div> 
+        <div>{merror?"error "+merror:""}</div>  */}
         </div>
     )
 }
