@@ -2,14 +2,29 @@ import React from 'react'
 import Cookies from 'js-cookie'
 import { useSelector } from "react-redux";
 import createrequest from '../../utlis/createrequest';
+import axios from "axios";
+import { useMutation } from "react-query";
 
 function DoneButton() {
     const {formname,formelements,formdetails}=useSelector((state)=>state.formlist);
-    
-    const handleClick=()=>{
+    const accessToken=Cookies.get("jwt")
+        const authAxious=axios.create({
+            headers:{
+                Authorization:`Bearer ${accessToken}`
+            }
+        })
+    const {mutate,isError ,isSuccess,error,data }=useMutation(data=>authAxious.post(`${process.env.REACT_APP_API}/createform`,data))
+    const handleClick=async ()=>{
         const data={formname,formelements,formdetails}
         console.log({formname,formelements,formdetails})
-        const {request}=createrequest(`${process.env.REACT_APP_API}/createform`,'post',data)
+        
+        mutate(data);
+        if(data){
+            console.log(data);
+        }
+        // await authAxious.post(url,data)
+
+        // const {request}=createrequest(`${process.env.REACT_APP_API}/createform`,'post',data)
         console.log(Cookies.get("jwt"))
     }
     return (
