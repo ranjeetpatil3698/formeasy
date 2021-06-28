@@ -15,6 +15,8 @@ function RenderForm() {
     (state) => state.formrender
   );
 
+ 
+ 
   let { url } = useParams();
   
   const instance = axios.create({
@@ -28,13 +30,15 @@ function RenderForm() {
     data: currentdata,
     error,
   } = useQuery("currentform", () =>
-    instance.get(`${process.env.REACT_APP_API}/getform/${url}`, { retry: 1 })
+    instance.get(`${process.env.REACT_APP_API}/getform/${url}`)
   );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    
     if (!isLoading) {
+      
       dispatch(setInitialState(currentdata.data));
     }
   }, [isLoading]);
