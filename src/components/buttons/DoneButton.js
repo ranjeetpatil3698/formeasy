@@ -20,9 +20,9 @@ function DoneButton() {
         // console.log({formname,formelements,formdetails})
         
         mutate(data);
-        if(successdata){
+        if(isSuccess && successdata){
             const {formurl}=successdata.data.data
-            console.log(formurl);
+            console.log(formurl,successdata);
             history.push(`/responses/${formurl}`)
             
         }

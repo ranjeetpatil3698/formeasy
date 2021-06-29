@@ -18,6 +18,7 @@ const initialState={
   submitready:false,
   formdetails: [],
   formurl:"",
+  formsubmit:false,
 }
 
 export const counterSlice = createSlice({
@@ -47,18 +48,23 @@ export const counterSlice = createSlice({
       }
     },
     setInitialState:(state,{payload})=>{
-      const {fname,data,formelements,formurl}=payload.data
+      if(payload.data!=null){
+        const {fname,data,formelements,formurl}=payload.data
+        state.formname=fname;
+        state.formdetails=data;
+        state.formelements=formelements;
+        state.formurl=formurl
+      }
       
-      state.formname=fname;
-      state.formdetails=data;
-      state.formelements=formelements;
-      state.formurl=formurl
+    },
+    setformsubmit:(state,payload)=>{
+      state.formsubmit=true;
     }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {  updateanswer,setInitialState} = counterSlice.actions;
+export const {  updateanswer,setInitialState,setformsubmit} = counterSlice.actions;
 
 export default counterSlice.reducer;
 

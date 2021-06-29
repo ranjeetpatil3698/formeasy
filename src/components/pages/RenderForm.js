@@ -5,7 +5,7 @@ import NumberClient from "../clientForm/NumberClient";
 import UploadClient from "../clientForm/UploadClient";
 import SubmitButton from "../clientForm/SubmitButton";
 import ClientHeading from "../clientForm/ClientHeading";
-import { useParams } from "react-router-dom";
+import { useParams,Redirect } from "react-router-dom";
 import { setInitialState } from "../../redux/reducers/renderReducer";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -15,8 +15,6 @@ function RenderForm() {
     (state) => state.formrender
   );
 
- 
- 
   let { url } = useParams();
   
   const instance = axios.create({
@@ -37,11 +35,15 @@ function RenderForm() {
 
   useEffect(() => {
     
-    if (!isLoading) {
+    if (!isLoading && currentdata.data) {
       
       dispatch(setInitialState(currentdata.data));
     }
   }, [isLoading]);
+
+  if(!currentdata ){
+    return <Redirect to="/404"/>
+  }
 
   return (
     <div className="flex flex-col gap-2 m-4">

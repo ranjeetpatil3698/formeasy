@@ -9,8 +9,16 @@ import Response from './components/Response';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Home';
 import Logout from './components/Logout';
+import Sentresponse from './components/Sentresponse';
+import { useSelector } from "react-redux";
+import Errorpage from './components/Errorpage';
 
-function App() {
+const App=() =>{
+
+  const { formdetails, submitready, formname,formsubmit } = useSelector(
+    (state) => state.formrender
+  );
+
   return (
     <Router>
       <div className="font-sans">
@@ -20,6 +28,7 @@ function App() {
           <Route path="/viewform/:url" component={RenderForm}/>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
+          {formsubmit&&<Route path="/thankyou"><Sentresponse formname={formname}/></Route>}
           <PrivateRoute path="/admin" >
             <Admin/>
           </PrivateRoute>
@@ -29,6 +38,7 @@ function App() {
           <PrivateRoute path="/createform">
             <CreateForm/>
           </PrivateRoute>
+          <Route path='*' component={Errorpage} />
         </Switch>
         
       </div>
