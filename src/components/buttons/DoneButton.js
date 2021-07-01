@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Cookies from 'js-cookie'
 import { useSelector } from "react-redux";
 import {useHistory} from "react-router-dom";
@@ -20,18 +20,28 @@ function DoneButton() {
         // console.log({formname,formelements,formdetails})
         
         mutate(data);
-        if(isSuccess && successdata){
-            const {formurl}=successdata.data.data
-            console.log(formurl,successdata);
-            history.push(`/responses/${formurl}`)
+        // if(isSuccess && successdata){
+        //     const {_id}=successdata.data.data
+        //     console.log(successdata.data.data);
+        //     history.push(`/responses/${_id}`)
             
-        }
+        // }
         
         // await authAxious.post(url,data)
 
         // const {request}=createrequest(`${process.env.REACT_APP_API}/createform`,'post',data)
         // console.log(Cookies.get("jwt"))
     }
+
+    useEffect(()=>{
+        if(isSuccess && successdata){
+            const {_id}=successdata.data.data
+            console.log(successdata.data.data);
+            history.push(`/responses/${_id}`)
+            
+        }
+    },[isSuccess,successdata])
+
     return (
         <div className="bg-purple-600 bg-opacity-75 text-white w-full p-3 rounded-md" onClick={handleClick}>
         <div className="flex flex-row justify-center gap-1 cursor-pointer">

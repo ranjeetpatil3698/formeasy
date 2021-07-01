@@ -8,7 +8,6 @@ import Admin from './components/Admin';
 import Response from './components/Response';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Home';
-import Logout from './components/Logout';
 import Sentresponse from './components/Sentresponse';
 import { useSelector } from "react-redux";
 import Errorpage from './components/Errorpage';
@@ -22,7 +21,7 @@ const App=() =>{
   return (
     <Router>
       <div className="font-sans">
-        <Logout/>
+      
         <Switch>
           <Route path='/' component={Home} exact={true}/>
           <Route path="/viewform/:url" component={RenderForm}/>
@@ -32,7 +31,7 @@ const App=() =>{
           <PrivateRoute path="/admin" >
             <Admin/>
           </PrivateRoute>
-          <PrivateRoute path="/responses/:formurl" >
+          <PrivateRoute path="/responses/:url" >
             <Response/>
           </PrivateRoute>
           <PrivateRoute path="/createform">

@@ -30,7 +30,7 @@ function Loginbutton({ email, password }) {
   };
 
   if (redirectToReferrer === true) {
-    return <Redirect to={state?.from || "/"} />;
+    return <Redirect to={state?.from || "/admin"} />;
   }
 
   return (

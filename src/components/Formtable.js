@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 export default function Formtable({ data }) {
+  console.log(data)
   return (
     <div>
       <div className="flex flex-col">
@@ -18,14 +19,14 @@ export default function Formtable({ data }) {
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        <Link to={`/viewform/${form.formurl}`}>View form</Link>
+                        <Link to={`/viewform/${form.formurl}`}>View Form</Link>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <Link
                           className="text-indigo-600 hover:text-indigo-900"
                           to={`/responses/${form.formurl}`}
                         >
-                          view form
+                          View Responses
                         </Link>
                       </td>
                     </tr>

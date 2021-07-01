@@ -39,9 +39,9 @@ function RenderForm() {
       
       dispatch(setInitialState(currentdata.data));
     }
-  }, [isLoading]);
+  }, [isLoading,currentdata]);
 
-  if(!currentdata ){
+  if(!isLoading && !currentdata ){
     return <Redirect to="/404"/>
   }
 

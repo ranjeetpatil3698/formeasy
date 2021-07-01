@@ -3,6 +3,7 @@ import axios from "axios";
 import { useQuery ,useQueryClient } from "react-query";
 import Cookies from "js-cookie";
 import Formtable from "./Formtable";
+import Logout from '../components/Logout';
 
 export default function Admin() {
 const [form,setform]=useState([]);
@@ -30,7 +31,8 @@ const queryClient = useQueryClient()
 
   return (
     <div>
-        {data?<Formtable data={data}/>:<div>&nbsp;</div>}
+        <Logout/>
+        {data&&<Formtable data={data}/>}
     </div>
   );
 }

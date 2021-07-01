@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import createrequest  from "../../utlis/createrequest"
+import { v4 as uuid_v4 } from "uuid";
 
 let countElements=(elements)=>{
     let count=0;
@@ -19,6 +19,7 @@ const initialState={
   formdetails: [],
   formurl:"",
   formsubmit:false,
+  responseID:uuid_v4()
 }
 
 export const counterSlice = createSlice({
@@ -30,6 +31,7 @@ export const counterSlice = createSlice({
       state.formdetails.map((el)=>{
         if(el.id==id){
           el.answer=value
+          el.responseid=state.responseID
           if(el.answer.length>0){
               el.done=true
               state.submitstatus[el.id-1]=true;
