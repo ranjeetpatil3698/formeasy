@@ -3,17 +3,31 @@ import { Redirect, useLocation } from "react-router-dom";
 import { useMutation } from "react-query";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import {authUser} from '../redux/reducers/userReducer'
+
+
 
 function Loginbutton({ email, password }) {
   const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
   const { state } = useLocation();
+
+  const dispatch=useDispatch();
 
   const instance = axios.create({
     withCredentials: true,
   });
 
   const { mutate, isError, isSuccess } = useMutation((data) =>
-    instance.post(`${process.env.REACT_APP_API}/login`, data)
+    instance.post(`${process.env.REACT_APP_API}/login`, data),{
+      onSuccess:(data)=>{
+        const {name,email}=data.data.data;
+        console.log(name,email)
+        Cookies.set('name',name);
+        Cookies.set('email',email);
+        Cookies.set('status',true);
+      }
+    }
   );
 
   // authAxious.post(${process.env.REACT_APP_API}/login,data);
@@ -23,10 +37,6 @@ function Loginbutton({ email, password }) {
     // const {request}=createrequest(`${process.env.REACT_APP_API}/login`,'post',data);
     mutate(data);
     setRedirectToReferrer(true);
-    if(!Cookies.get('jwt')){
-        Cookies.set("jwt");
-    }
-    
   };
 
   if (redirectToReferrer === true) {
