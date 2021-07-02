@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { Redirect, useLocation } from "react-router-dom";
+import {Redirect, useHistory, useLocation } from "react-router-dom";
 import { useMutation } from "react-query";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
-import {authUser} from '../redux/reducers/userReducer'
+
 
 
 
 function Loginbutton({ email, password }) {
   const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
   const { state } = useLocation();
-
+  const history=useHistory();
   const dispatch=useDispatch();
 
   const instance = axios.create({
@@ -26,6 +26,7 @@ function Loginbutton({ email, password }) {
         Cookies.set('name',name);
         Cookies.set('email',email);
         Cookies.set('status',true);
+        history.push("/admin")
       }
     }
   );

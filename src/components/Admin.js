@@ -37,6 +37,7 @@ const queryClient = useQueryClient()
 
   return (
     <div>
+      <Logout/>
         {data?<Formtable data={data}/>:<div>&nbsp;</div>}
 
     </div>
