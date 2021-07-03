@@ -26,7 +26,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <App className="font-sans"/>
         <ReactQueryDevtools initialIsOpen={false}/>
       </QueryClientProvider>
     </Provider>

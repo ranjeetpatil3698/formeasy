@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Loginbutton from './Loginbutton';
+import { Navbar } from './Navbar';
 
 function Login() {
     const [password,setpassword]=useState("");
@@ -8,6 +9,7 @@ function Login() {
 
     return (
         <div className="flex flex-col gap-2 border ">
+            <Navbar/>
          <div className="text-3xl">Login page  </div>
         <input
             placeholder="Your Email" 

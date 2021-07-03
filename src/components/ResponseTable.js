@@ -11,7 +11,7 @@ const ResponseTable = (props) => {
     }
   }, [data]);
 
-  if (data && data===null) {
+  if (data===null) {
     return <div>No responses recieved</div>;
   }
 

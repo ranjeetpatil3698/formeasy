@@ -1,10 +1,12 @@
 import React,{useEffect,useState} from 'react'
 import {useParams} from "react-router-dom";
-import Logout from './Logout';
+
 import axios from "axios";
 import { useQuery,useQueryClient } from "react-query";
 import ResponseTable from './ResponseTable';
 import _ from "lodash";
+import { Navbar } from './Navbar';
+import { Formurl } from './Formurl';
 
 const Response=() =>{
     const {url}=useParams();
@@ -59,6 +61,7 @@ const Response=() =>{
           if(finaldata){
             // console.log(finaldata)
             setListResponses(finaldata)
+            console.log(listResponses)
           }
           
         }
@@ -67,10 +70,10 @@ const Response=() =>{
 
     return (
         <div>
-            <Logout/>
-            {currentdata?currentdata.data.allResponses[0].formname:""}
-            <div>Formurl:<p>{`${process.env.REACT_APP_URL}/viewform/${url}`}</p></div>
-            <div>{listResponses ? <ResponseTable data={listResponses}/>:"No responses received till now"}</div>
+            <Navbar/>
+            <div className="text-4xl font-sans">{currentdata?currentdata.data.allResponses[0].formname:""}</div>
+            <Formurl url={url}/>
+            <div>{listResponses!=null ? <ResponseTable data={listResponses}/>:"No responses received till now"}</div>
         </div>
     )
 }

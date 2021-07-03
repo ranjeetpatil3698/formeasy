@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Sentresponse from './components/Sentresponse';
 import { useSelector } from "react-redux";
 import Errorpage from './components/Errorpage';
+import { Navbar } from './components/Navbar';
 
 const App=() =>{
 
@@ -20,8 +21,7 @@ const App=() =>{
 
   return (
     <Router>
-      <div className="font-sans">
-      
+      <div >
         <Switch>
           <Route path='/' component={Home} exact={true}/>
           <Route path="/viewform/:url" component={RenderForm}/>

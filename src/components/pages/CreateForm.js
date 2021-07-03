@@ -5,7 +5,7 @@ import NumberLabel from "../InputTypes/NumberLabel";
 import UploadLabel from "../InputTypes/UploadLabel"
 import FormFooter from "../FormFooter"
 import FormHeading from '../FormHeading';
-import Logout from "../Logout";
+import { Navbar } from '../Navbar';
 
 function CreateForm() {
     const { formdetails} = useSelector((state) => state.formlist);
@@ -13,7 +13,7 @@ function CreateForm() {
 
     return (
         <div className="flex flex-col gap-2 m-4">
-            <Logout/>
+            <Navbar/>
             <FormHeading />
             {
                 formdetails.map(({id,formtype,required,answer,label})=>{

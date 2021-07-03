@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Signbutton from "./Signbutton";
+import { Navbar } from './Navbar';
 
 function Signup() {
     const [name,setname]=useState("");
@@ -9,6 +10,7 @@ function Signup() {
     
     return (
         <div className="flex flex-col gap-2 border ">
+            <Navbar/>
          <div className="text-3xl">Signup page  </div>
         <input 
             placeholder="Full Name"
