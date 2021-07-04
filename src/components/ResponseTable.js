@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useQueryClient } from "react-query";
 
-const ResponseTable = (props) => {
-  const [data, setdata] = useState(null);
+const ResponseTable = ({ data }) => {
+  // const [data, setdata] = useState(null);
   const queryClient = useQueryClient();
 
-  useEffect(() => {
-    if (props.data) {
-      setdata(props.data);
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (props.data) {
+  //     setdata(props.data);
+  //   }
+  //   console.log("running effects in formtable")
+  // }, [props.data]);
+  console.log(data);
 
-  if (data===null) {
+  if (data.length <= 0) {
     return <div>No responses recieved</div>;
   }
 
@@ -37,7 +39,16 @@ const ResponseTable = (props) => {
               <tr key={i}>
                 {el.map((el2) => (
                   <td key={el2._id} className="border px-8 py-4">
-                    {el2.answer}
+                    {el2.formtype != "File" ? (
+                      el2.answer
+                    ) : (
+                      <a
+                        href={`${process.env.REACT_APP_API}/viewfile/${el2.answer}`}
+                        target="_blank"
+                      >
+                        {el2.answer}
+                      </a>
+                    )}
                   </td>
                 ))}
               </tr>

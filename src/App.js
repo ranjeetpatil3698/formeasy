@@ -11,7 +11,7 @@ import Home from './components/Home';
 import Sentresponse from './components/Sentresponse';
 import { useSelector } from "react-redux";
 import Errorpage from './components/Errorpage';
-import { Navbar } from './components/Navbar';
+import Viewfile from './components/Viewfile';
 
 const App=() =>{
 
@@ -36,6 +36,9 @@ const App=() =>{
           </PrivateRoute>
           <PrivateRoute path="/createform">
             <CreateForm/>
+          </PrivateRoute>
+          <PrivateRoute path="/viewfile/:filename">
+            <Viewfile/>
           </PrivateRoute>
           <Route path='*' component={Errorpage} />
         </Switch>

@@ -56,12 +56,10 @@ const Response=() =>{
       useEffect(()=>{
         if(currentdata){
           const {responses}=currentdata.data.allResponses[0];
-          // console.log(responses)
           const finaldata=constructdata(responses);
+          
           if(finaldata){
-            // console.log(finaldata)
             setListResponses(finaldata)
-            console.log(listResponses)
           }
           
         }
@@ -73,7 +71,7 @@ const Response=() =>{
             <Navbar/>
             <div className="text-4xl font-sans">{currentdata?currentdata.data.allResponses[0].formname:""}</div>
             <Formurl url={url}/>
-            <div>{listResponses!=null ? <ResponseTable data={listResponses}/>:"No responses received till now"}</div>
+            <div>{listResponses===null ? "No responses received till now":<ResponseTable data={listResponses}/>}</div>
         </div>
     )
 }

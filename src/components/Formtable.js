@@ -11,7 +11,7 @@ export default function Formtable({ data }) {
               <table className="min-w-full divide-y divide-gray-200">
                 <tbody className="bg-white divide-y divide-gray-200">
                   {data.data.allForms.map((form) => (
-                    <tr key={form.formurl} className="border-b-2 border-purple-900">
+                    <tr key={form.formurl} className="">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900">
                           {form.fname}
