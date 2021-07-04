@@ -14,6 +14,7 @@ function CreateForm() {
     return (
         <div className="flex flex-col gap-2 m-4">
             <Navbar/>
+            <div className="m-4 text-xl">Create A New Form</div>
             <FormHeading />
             {
                 formdetails.map(({id,formtype,required,answer,label})=>{
