@@ -45,6 +45,12 @@ function RenderForm() {
     return <Redirect to="/404"/>
   }
 
+  if(currentdata && currentdata.data.message){
+    return( <h2>
+      {currentdata.data.message}
+    </h2>)
+  }
+
   return (
     <div className="flex flex-col gap-2 m-4">
         <div>{isLoading?"Loading form":""}</div>

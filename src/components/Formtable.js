@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import _ from "lodash"
-
+import DeleteButton from "./buttons/DeleteButton";
+import CheckBox from "./CheckBox";
 export default function Formtable({ data }) {
   // console.log(data)
   return (
@@ -24,6 +25,12 @@ export default function Formtable({ data }) {
                 >
                   View Responses
                 </Link>
+              </td>
+              <td className="px-6 py-4  text-right text-sm font-medium border-2 border-purple-700">
+                <DeleteButton id={form._id}/>
+              </td>
+              <td className="px-6 py-4  text-right text-sm font-medium border-2 border-purple-700">
+                <CheckBox check={form.visible} url={form.formurl}/>
               </td>
             </tr>
           ))}
