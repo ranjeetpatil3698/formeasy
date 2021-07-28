@@ -8,16 +8,19 @@ export default function Logout() {
   const history = useHistory();
 
   const instance = axios.create({
-    withCredentials: true
+    withCredentials: true,
+    headers:{
+      authorization:`Bearer ${localStorage.getItem('token')}`
+    }
   })
 
   const handleLogout =async () => {
     const response=await instance.get(`${process.env.REACT_APP_API}/logout`)
     
     if(response.status){
-      Cookies.remove("status");
-      Cookies.remove("name");
-      Cookies.remove("email");
+      localStorage.removeItem("status");
+      localStorage.removeItem("name");
+      localStorage.removeItem("email");
       history.push("/");
     }
 

@@ -16,6 +16,9 @@ function DoneButton() {
   // })
   const instance = axios.create({
     withCredentials: true,
+    headers:{
+      authorization:`Bearer ${localStorage.getItem('token')}`
+    }
   });
   const {
     mutate,

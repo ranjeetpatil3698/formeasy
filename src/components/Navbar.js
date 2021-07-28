@@ -14,7 +14,7 @@ const Logged = () => {
 export const Navbar = () => {
     
   const [allowed, setallowed] = useState(false);
-  const status=Cookies.get("status");
+  const status=localStorage.getItem("status");
   
 
   useEffect(() => {

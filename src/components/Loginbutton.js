@@ -21,11 +21,13 @@ function Loginbutton({ email, password }) {
   const { mutate, isError, isSuccess } = useMutation((data) =>
     instance.post(`${process.env.REACT_APP_API}/login`, data),{
       onSuccess:(data)=>{
-        const {name,email}=data.data.data;
-        console.log(name,email)
-        Cookies.set('name',name);
-        Cookies.set('email',email);
-        Cookies.set('status',true);
+        const {name,email,token}=data.data.data;
+        console.log(name,email);
+        localStorage.setItem('token',token);
+        localStorage.setItem('name',name);
+        localStorage.setItem('email',email);
+        localStorage.setItem('status',true);
+        console.log(localStorage.getItem('token'))
         history.push("/admin")
       }
     }

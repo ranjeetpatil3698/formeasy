@@ -15,9 +15,10 @@ function Signbutton({name,email,password,passwordConfirm}){
         onSuccess:(data)=>{
             const {name,email}=data.data.data;
             console.log(name,email)
-            Cookies.set('name',name);
-            Cookies.set('email',email);
-            Cookies.set('status',true);
+   
+            localStorage.setItem('name',name);
+            localStorage.setItem('email',email);
+            localStorage.setItem('status',true);
             history.push("/admin")
           }
     })
