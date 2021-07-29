@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {updatelabel,updateanswer,updaterequired} from "../../redux/reducers/formReducer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import DeleteQuestion from '../DeleteQuestion';
 
 function NumberLabel({id,label,important,solution}) {

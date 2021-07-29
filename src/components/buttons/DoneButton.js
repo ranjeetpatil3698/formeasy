@@ -21,16 +21,12 @@ function DoneButton() {
     }
   });
   const {
-    mutate,
-    isError,
-    isSuccess,
-    error,
-    data: successdata,
+    mutate
   } = useMutation((data) =>
     instance.post(`${process.env.REACT_APP_API}/createform`, data),{
       onSuccess:(data)=>{
       const { formurl } = data.data.data;
-      console.log(formurl, data);
+      // console.log(formurl, data);
       history.push(`/responses/${formurl}`);
       }
     }

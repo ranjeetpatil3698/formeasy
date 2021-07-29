@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "react-query";
+
 import axios from "axios";
 
 export default function Filefield({ solution, setSelectedFile, selectedFile }) {
@@ -7,7 +7,7 @@ export default function Filefield({ solution, setSelectedFile, selectedFile }) {
   const handlechange =async  () => {
     setSelectedFile("");
     const {data}= await axios.get(`${process.env.REACT_APP_API}/removefile/${selectedFile}`)
-    console.log(data)
+    // console.log(data)
   };
   return (
     <div

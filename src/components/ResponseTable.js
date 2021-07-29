@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useQueryClient } from "react-query";
+import React from "react";
 import _ from "lodash"
 
 const ResponseTable = ({ data }) => {
-  // const [data, setdata] = useState(null);
-  const queryClient = useQueryClient();
+  
+  
 
-  // useEffect(() => {
-  //   if (props.data) {
-  //     setdata(props.data);
-  //   }
-  //   console.log("running effects in formtable")
-  // }, [props.data]);
-  console.log(data);
 
   if (data.length <= 0) {
     return <div>No responses recieved</div>;
@@ -47,6 +39,7 @@ const ResponseTable = ({ data }) => {
                       <a
                         href={`${process.env.REACT_APP_API}/viewfile/${el2.answer}`}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         {el2.answer}
                       </a>

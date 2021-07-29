@@ -1,6 +1,6 @@
 import React from "react";
-import { Redirect, Route, useHistory } from "react-router-dom";
-import Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 
 

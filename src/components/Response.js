@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import axios from "axios";
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery} from "react-query";
 import ResponseTable from "./ResponseTable";
 import _ from "lodash";
 import { Navbar } from "./Navbar";
@@ -11,7 +11,6 @@ import { Formurl } from "./Formurl";
 const Response = () => {
   const { url } = useParams();
   const [listResponses, setListResponses] = useState(null);
-  const queryClient = useQueryClient();
 
   const constructdata = (initial) => {
     const groupBy = (array, key) => {
@@ -39,16 +38,15 @@ const Response = () => {
   const instance = axios.create({
     baseURL: process.env.REACT_APP_API,
     withCredentials: true,
-    headers:{
-      authorization:`Bearer ${localStorage.getItem('token')}`
-    }
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
   });
 
   const {
     isLoading,
-    isError,
+
     data: currentdata,
-    error,
   } = useQuery("responses", () =>
     instance.get(`${process.env.REACT_APP_API}/getAllResponses/${url}`)
   );
@@ -68,19 +66,27 @@ const Response = () => {
     <div>
       <Navbar />
       <div className="flex flex-col items-center">
-      <div className="text-4xl font-sans m-4 text-purple-800">
-        {currentdata ? _.startCase( _.lowerCase(currentdata.data.allResponses[0].formname )): ""}
-      </div>
-      <Formurl url={url}  className="m-4"/>
-      <div className="flex flex-col gap-2 border-2 rounded border-purple-700 p-2 w-1/6 m-2 items-center">
-        <span className="text-2xl text-purple-800">Total Responses</span>
-        <span className="text-2xl text-purple-800">{listResponses ? listResponses.length : ""}</span>
+        <div className="text-4xl font-sans m-4 text-purple-800">
+          {currentdata
+            ? _.startCase(
+                _.lowerCase(currentdata.data.allResponses[0].formname)
+              )
+            : ""}
+        </div>
+        <Formurl url={url} className="m-4" />
+        <div className="flex flex-col gap-2 border-2 rounded border-purple-700 p-2 w-1/6 m-2 items-center">
+          <span className="text-2xl text-purple-800">Total Responses</span>
+          <span className="text-2xl text-purple-800">
+            {listResponses ? listResponses.length : ""}
+          </span>
         </div>
       </div>
 
       <div className="m-2">
         {listResponses === null ? (
-        <div className="text-3xl text-purple-800">No responses received till now</div>
+          <div className="text-3xl text-purple-800">
+            No responses received till now
+          </div>
         ) : (
           <ResponseTable data={listResponses} />
         )}

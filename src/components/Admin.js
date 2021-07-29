@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
 import { Navbar } from "./Navbar";
 import Formtable from "./Formtable";
-import CreateForm from "./pages/CreateForm";
-import { Link, useParams } from "react-router-dom";
+
+import { Link} from "react-router-dom";
 
 export default function Admin() {
-  const [form, setform] = useState([]);
   const queryClient = useQueryClient();
   const instance = axios.create({
     crossDomain: true,
@@ -37,7 +36,7 @@ export default function Admin() {
       </Link>
       </div>
       
-      {data && data.data.allForms.length == 0 ? (
+      {data && data.data.allForms.length === 0 ? (
         <div className="text-3xl text-purple-800">Create a form to collect responses</div>
       ) : (
         <div>&nbsp;</div>

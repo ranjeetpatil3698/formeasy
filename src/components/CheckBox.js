@@ -14,7 +14,7 @@ const CheckBox = ({check,url}) => {
       const {mutate} = useMutation((data) =>
         instance.patch(`${process.env.REACT_APP_API}/changestatus/${url}`, data),{
           onSuccess:(data)=>{
-            console.log("status changed")
+            // console.log("status changed")
             queryClient.invalidateQueries("allforms")
         }
     });

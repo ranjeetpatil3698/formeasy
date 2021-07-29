@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TextClient from "../clientForm/TextClient";
 import NumberClient from "../clientForm/NumberClient";
@@ -24,9 +24,7 @@ function RenderForm() {
 
   const {
     isLoading,
-    isError,
     data: currentdata,
-    error,
   } = useQuery("currentform", () =>
     instance.get(`${process.env.REACT_APP_API}/getform/${url}`)
   );

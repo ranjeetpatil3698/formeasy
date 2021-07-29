@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
+
 import {Link} from "react-router-dom";
 import Logout from "./Logout";
 import DashboardButton from "./DashboardButton";
@@ -18,9 +18,9 @@ export const Navbar = () => {
   
 
   useEffect(() => {
-    if (status=='true') {
+    if (status==='true') {
       setallowed(true);
-    }else if(status==undefined){
+    }else if(status===undefined){
       setallowed(false);
     }
     

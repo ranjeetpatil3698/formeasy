@@ -15,20 +15,20 @@ function SubmitButton({ url }) {
     withCredentials: true,
   });
   const submitdata = { formdetails, submitready, formname };
-  const { mutate, isError, isSuccess, error, data } = useMutation((data) =>
+  const { mutate, isSuccess, data } = useMutation((data) =>
     instance.post(`${process.env.REACT_APP_API}/sendresponse/${url}`, data)
   );
 
   const handleClick = () => {
     if (submitready) {
-      console.log({ formdetails, submitready, formname });
+      // console.log({ formdetails, submitready, formname });
     }
     mutate(submitdata);
   };
 
   useEffect(() => {
     if (isSuccess && data) {
-        console.log(data);
+        // console.log(data);
         dispatch(setformsubmit());
         
       }

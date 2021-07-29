@@ -30,7 +30,7 @@ const createrequest=async(url,method,data=null)=>{
             return {err}
         }
     }
-    console.log({response});
+    // console.log({response});
     
 }
 

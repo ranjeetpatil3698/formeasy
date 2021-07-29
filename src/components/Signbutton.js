@@ -1,20 +1,20 @@
 import React,{useState} from 'react'
-import createrequest from '../utlis/createrequest'
+
 import { useMutation } from "react-query";
 import axios from "axios";
-import Cookies from "js-cookie";
+
 import { useHistory } from "react-router-dom";
 function Signbutton({name,email,password,passwordConfirm}){
-    const [merror,setmerror]=useState("")
+    const [setmerror]=useState("")
     const history=useHistory();
     const instance = axios.create({
         withCredentials: true
       })
 
-    const {mutate,isError ,isSuccess,error,data }=useMutation(data=>instance.post(`${process.env.REACT_APP_API}/signup`,data),{
+    const {mutate}=useMutation(data=>instance.post(`${process.env.REACT_APP_API}/signup`,data),{
         onSuccess:(data)=>{
             const {name,email}=data.data.data;
-            console.log(name,email)
+            // console.log(name,email)
    
             localStorage.setItem('name',name);
             localStorage.setItem('email',email);
@@ -30,7 +30,7 @@ function Signbutton({name,email,password,passwordConfirm}){
         user({email});
         
         if( userexist && userexist.data.exist){
-            console.log(userexist)
+            // console.log(userexist)
             setmerror("user already exists")
         }
 

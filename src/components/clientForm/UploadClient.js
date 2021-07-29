@@ -11,7 +11,7 @@ function UploadClient({ id, label, important, solution = "", done }) {
   const instance = axios.create({
     withCredentials: true
   })
-  const {mutate,isError ,isSuccess,error,data }=useMutation(data=>instance.post(`${process.env.REACT_APP_API}/sendfile`,data))
+  const {mutate }=useMutation(data=>instance.post(`${process.env.REACT_APP_API}/sendfile`,data))
 
   useEffect(() => {
     dispatch(updateanswer({ id, value: selectedFile }));

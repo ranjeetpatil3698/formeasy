@@ -1,13 +1,13 @@
-import React,{useEffect,useState} from 'react';
+import React from 'react';
 import FileViewer from 'react-file-viewers';
 import {useParams} from 'react-router-dom'
 
 function Viewfile(){
     const {filename}=useParams();
     const filetype=filename.split(".")[(filename.split(".").length)-1]
-    console.log(filetype)
+    // console.log(filetype)
     let onError=(e)=>{
-        console.log(e, 'error in file-viewer');
+        // console.log(e, 'error in file-viewer');
       }
     return(
         <div className="w-auto h-screen">

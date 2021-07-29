@@ -21,7 +21,7 @@ const DeleteButton = ({id}) => {
         }
     });
     const handleClick=()=>{
-        console.log("deleted")
+        // console.log("deleted")
         mutate({})
         
     }

@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {updateformname} from "../redux/reducers/formReducer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function FormHeading() {
     const [content,setcontent]=useState("");

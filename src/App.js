@@ -1,6 +1,6 @@
 import './App.css';
 import RenderForm from './components/pages/RenderForm';
-import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import CreateForm from "./components/pages/CreateForm"
 import Login from "./components/Login";
 import SignUp from "./components/Signup";
@@ -15,7 +15,7 @@ import Viewfile from './components/Viewfile';
 
 const App=() =>{
 
-  const { formdetails, submitready, formname,formsubmit } = useSelector(
+  const { formname,formsubmit } = useSelector(
     (state) => state.formrender
   );
 
