@@ -9,7 +9,7 @@ export default function Sentresponse({formname}) {
         <div className="text-5xl  p-1 rounded  ">
             <label className="w-full outline-none text-purple-800">{formname}</label>
         </div>
-           <p className="text-3xl text-purple-800">Was sent sucessfully.👍</p> 
+           <p className="text-3xl text-purple-800">Was sent sucessfully👍.</p> 
         </div>
     )
 }

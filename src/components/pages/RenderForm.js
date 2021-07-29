@@ -46,9 +46,11 @@ function RenderForm() {
   }
 
   if(currentdata && currentdata.data.message){
-    return( <h2>
-      {currentdata.data.message}
-    </h2>)
+    return(
+      <div className="text-3xl text-white bg-red-600 h-full p-4">
+        {currentdata.data.message}.
+        </div>
+      )
   }
 
   return (
