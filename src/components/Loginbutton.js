@@ -48,7 +48,7 @@ function Loginbutton({ email, password }) {
 
   return (
     <div
-      className="bg-purple-600 bg-opacity-75 text-white w-1/4 p-3 m-1 rounded-md"
+      className="bg-purple-600 bg-opacity-75 text-white w-1/3 p-3 m-1 rounded-md"
       onClick={handleClick}
     >
       {/* <div>{isError?"error":""}</div>   

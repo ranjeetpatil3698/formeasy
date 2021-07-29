@@ -7,22 +7,25 @@ function Login() {
     
 
     return (
-        <div className="flex flex-col gap-2 border ">
-         <div className="text-3xl">Login page  </div>
+        <div className="flex flex-col gap-4 align-middle  p-64 ">
+         <div className="text-5xl">Login page  </div>
         <input
             placeholder="Your Email" 
-            className="p-1 m-1 rounded w-1/4 h-10  border border-purple-500"
+            className="border border-purple-600 w-1/3 p-3 m-1 rounded-sm"
             value={email}
             onChange={(e)=>setemail(e.target.value)}
         />
         <input 
             placeholder="Password" 
-            className="p-1 m-1 rounded w-1/4 h-10 border border-purple-500 "
+            className="border border-purple-600 w-1/3 p-3 m-1 rounded-sm"
             value={password}
             type="password"
             onChange={(e)=>setpassword(e.target.value)}
         />
+        <div className="flex items-center">
         <Loginbutton  password={password} email={email} />
+        </div>
+        
         </div>
     )
 }

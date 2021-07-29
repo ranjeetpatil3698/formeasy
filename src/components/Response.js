@@ -67,18 +67,20 @@ const Response = () => {
   return (
     <div>
       <Navbar />
-      <div className="text-4xl font-sans m-4">
+      <div className="flex flex-col items-center">
+      <div className="text-4xl font-sans m-4 text-purple-800">
         {currentdata ? _.startCase( _.lowerCase(currentdata.data.allResponses[0].formname )): ""}
       </div>
       <Formurl url={url}  className="m-4"/>
-      <div className="flex flex-col gap-2 border-2 rounded border-purple-700 p-2 w-1/6 m-2">
-        <span className="text-2xl">Total Responses</span>
-        <span className="text-2xl">{listResponses ? listResponses.length : ""}</span>
-        
+      <div className="flex flex-col gap-2 border-2 rounded border-purple-700 p-2 w-1/6 m-2 items-center">
+        <span className="text-2xl text-purple-800">Total Responses</span>
+        <span className="text-2xl text-purple-800">{listResponses ? listResponses.length : ""}</span>
+        </div>
       </div>
+
       <div className="m-2">
         {listResponses === null ? (
-          "No responses received till now"
+        <div className="text-3xl text-purple-800">No responses received till now</div>
         ) : (
           <ResponseTable data={listResponses} />
         )}

@@ -8,8 +8,8 @@ function Signup() {
     const [confirm,setconfirm]=useState("");
     
     return (
-        <div className="flex flex-col gap-2 border ">
-         <div className="text-3xl">Signup page  </div>
+        <div className="flex flex-col gap-3 align-middle  p-36">
+         <div className="text-5xl">Signup page  </div>
         <input 
             placeholder="Full Name"
             className="p-1 m-1 w-1/4 h-10 border rounded border-purple-500" 

@@ -19,7 +19,8 @@ const ResponseTable = ({ data }) => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
+      <div className="text-3xl p-2 text-purple-800">Response List</div>
       <table className=" bg-white   border-2 border-purple-800 rounded">
         <thead>
           <tr>

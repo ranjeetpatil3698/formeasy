@@ -25,16 +25,20 @@ export default function Admin() {
 
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <Navbar />
+      <div className="flex items-center w-full px-72 ">
+        <div className="text-3xl text-purple-800">Hello {localStorage.getItem('name')} 👋</div>
       <Link
         to="/createform"
         className="cursor-pointer bg-purple-600 bg-opacity-75 text-white w-1/4 p-3 m-3 rounded-md"
       >
         <span className="text-2xl">+</span> Create New Form
       </Link>
+      </div>
+      
       {data && data.data.allForms.length == 0 ? (
-        <div>Create a form to collect responses</div>
+        <div className="text-3xl text-purple-800">Create a form to collect responses</div>
       ) : (
         <div>&nbsp;</div>
       )}
