@@ -1,6 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 export default function Home() {
+
+  if(localStorage.getItem('status')){
+    return <Redirect to="/admin"/>
+  }
+
   return (
     <div className="flex flex-col gap-6 items-center bg-purple-400 min-h-screen flex-grow p-10">
       <div className="flex flex-col gap-6 items-center font-sans text-7xl text-white">
