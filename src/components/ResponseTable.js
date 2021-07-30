@@ -7,7 +7,7 @@ const ResponseTable = ({ data }) => {
 
 
   if (data.length <= 0) {
-    return <div>No responses recieved</div>;
+    return <div className="text-3xl p-2 text-purple-800">No responses recieved</div>;
   }
 
   return (
